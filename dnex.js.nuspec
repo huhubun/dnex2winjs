@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>dnex.js</id>
-        <version>1.0.0</version>
+        <version>1.0.0.3</version>
         <title>dnex2winjs</title>
         <authors>huhubun</authors>
         <owners>huhubun</owners>
@@ -10,9 +10,13 @@
         <projectUrl>https://github.com/huhubun/dnex2winjs</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Exception mapping of .NET Framework to WinJS</description>
-        <tags>WinJS Exception</tags>
+        <releaseNotes />
+        <tags>WinJS Exception JavaScript</tags>
+        <dependencies>
+            <dependency id="WinJS" version="4.0.0" />
+        </dependencies>
     </metadata>
     <files>
-        <file src="dnex2winjs\dnex2winjs\Template\dnex.js" target="js\dnex.js" />
+        <file src="dnex2winjs\dnex2winjs\Template\dnex.js" target="content\js\dnex.js" />
     </files>
 </package>

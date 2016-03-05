@@ -4,7 +4,7 @@
 <#@ output extension=".js" #>
 // dnex2winjs v<#= Helper.GetVersion() #>
 // https://github.com/huhubun/dnex2winjs
-// Licensed under the MIT License. See LICENSE in the project root for license information
+// Licensed under the MIT License.
 (function () {
     "use strict";
 
@@ -15,7 +15,7 @@
 foreach(var e in DNEX.GetAllExceptions())
 {
 #>
-		<#= e.Key #>: <#= e.Value #>,
+        <#= e.Key #>: <#= e.Value #>,
 <#
 }
 #>
