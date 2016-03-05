@@ -1,0 +1,41 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)dnex2winjs\bin\Debug\dnex2winjs.dll" #>
+<#@ import namespace="dnex2winjs" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".html" #>
+<table>
+<#
+var exGroups = DNEX.GetAllExceptions().GroupBy(ex => ex.Value)
+						.Where(g => g.Count() > 1)
+						.OrderByDescending(g => g.Key );
+
+foreach(var group in exGroups)
+{
+#>
+<#
+	foreach(var e in group)
+	{
+#>
+		<tr>
+<#
+		if(e.Equals(group.First()))
+		{
+#>
+			<td rowspan="<#= group.Count() #>">
+				<b><#= group.Key #></b><br />
+				(0x<#= group.Key.ToString("X") #>)
+			</td>
+<#
+		}
+#>
+			<td><#= e.Key #></td>
+		</tr>
+<#
+	}
+#>
+<#
+}
+#>
+</table>

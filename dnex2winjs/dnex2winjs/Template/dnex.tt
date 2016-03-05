@@ -1,0 +1,23 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ assembly name="$(SolutionDir)dnex2winjs\bin\Debug\dnex2winjs.dll" #>
+<#@ import namespace="dnex2winjs" #>
+<#@ output extension=".js" #>
+// 下面的内容为自动生成，请不要修改，以免重新生成时被覆盖
+(function () {
+    "use strict";
+
+    var exceptions = WinJS.Class.define(function () { },
+    { },
+    {
+<#
+foreach(var e in DNEX.GetAllExceptions())
+{
+#>
+		<#= e.Key #>: <#= e.Value #>,
+<#
+}
+#>
+    });
+
+    WinJS.Namespace.define("dnex", exceptions);
+})();
