@@ -43,7 +43,7 @@ EN:[T4 Text Templates](https://msdn.microsoft.com/en-us/library/bb126445.aspx)
 * 本文中 WinJS 的运行环境均为使用 WinJS 编写的 Windows 商店应用，无法在 WinJS 制作的网页中使用 Windows 运行时组件或捕获 Windows 运行时异常
 * 只支持在 C# 或 Visual Basic 编写的 Windows 运行时组件中引发的，并且不是自定义的异常。详细内容请参考 MSDN 文章《[使用 C# 和 Visual Basic 创建 Windows 运行时组件](https://msdn.microsoft.com/zh-cn/library/windows/apps/xaml/mt609005.aspx)》中“引发异常”一节。<br />
 * EN:《[Creating Windows Runtime Components in C# and Visual Basic](https://msdn.microsoft.com/en-us/windows/uwp/winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic)》:"Throwing exceptions"
-* **十分重要**：一些异常的 HResult 值是相同的！这意味着若一个方法中可能引发多个不同异常，而这些异常使用同一个 HResult，那么 dnex.js 将无力分辨具体引发了哪一个异常。下表列出了使用相同 HResult 值的异常
+* **十分重要**：一些异常的 `HResult` 值是相同的！这意味着若一个方法可能引发多个不同异常，而这些异常使用同一个 `HResult`，那么 dnex.js 将无力分辨具体引发了哪一个异常。下表列出了使用相同 HResult 值的异常
 <table>
 		<tr>
 			<td rowspan="2">
@@ -169,7 +169,6 @@ EN:[T4 Text Templates](https://msdn.microsoft.com/en-us/library/bb126445.aspx)
 			<td>NullReferenceException</td>
 		</tr>
 </table>
-* 当前 dnex2winjs 项目采用的 .NET Framework 版本为 4.6，所以一旦随着 .NET Framework 的版本提升而添加了新的异常类，则需要修改 dnex2winjs 项目的 .NET Framework 版本，才能反射新增的异常类
 
 ## License
 MIT License
