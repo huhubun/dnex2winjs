@@ -41,18 +41,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DNEX.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Template\dnex.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>dnex.js</LastGenOutput>
-      <LastOutputs>.\dnexTemplate.dnex.js</LastOutputs>
-    </Content>
     <Content Include="Template\dnex.js">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dnex.tt</DependentUpon>
+    </Content>
+    <Content Include="Template\dnex.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>dnex.js</LastGenOutput>
+      <LastOutputs>.\dnexTemplate.dnex.js</LastOutputs>
     </Content>
     <Content Include="Template\ExceptionsWithSameHResult.html">
       <AutoGen>True</AutoGen>
