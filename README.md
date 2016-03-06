@@ -1,5 +1,10 @@
 # dnex2winjs (dnex.js)
-dnex 的含义是 **Dot Net EXceptions**。通过 dnex.js 可以让 WinJS 编写的 Windows 商店应用更方便的处理 Windows 运行时组件引发的异常。<br />
+dnex is short for **Dot Net EXcetptions**, dnex.js will make it easier to deal with the exception thrown by Windows Runtime Component in WinJS based Windows Store App
+
+THere is some limitation about this, details will follow in the note section
+
+dnex 的含义是 **Dot Net EXceptions**。通过 dnex.js 可以让 WinJS 编写的 Windows 商店应用更方便的处理 Windows 运行时组件引发的异常。
+
 在使用过程中存在一些限制，详细内容请参考下文的“注意事项”一节
 
 ## 为什么使用 dnex.js
