@@ -1,15 +1,28 @@
 # dnex2winjs (dnex.js)
 dnex is short for **Dot Net EXcetptions**, dnex.js will make it easier to deal with the exception thrown by Windows Runtime Component in WinJS based Windows Store App
 
-THere is some limitation about this, details will follow in the note section
+There is some limitation about this, details will follow in the note section
 
+# dnex2winjs (dnex.js)
 dnex 的含义是 **Dot Net EXceptions**。通过 dnex.js 可以让 WinJS 编写的 Windows 商店应用更方便的处理 Windows 运行时组件引发的异常。
 
 在使用过程中存在一些限制，详细内容请参考下文的“注意事项”一节
 
+## Why use dnex.js
+Due to the fact that Winows store apps can't access the type of excepiton in the Windows RUntime Component, the only avaliable option is to track the stacktrace text, this will make it difficult to decide the type of exception thrown by Window Runtime Component in WinJS.
+
+dnex.js records all the exceptions defined in mscorlib.dll, and can be used as dnex class in WinJS, this will make it easier to decide the type of exception caused by Windows Runtime Component
+
 ## 为什么使用 dnex.js
-由于 WinJS 编写的 Windows 商店应用不能获取 Windows 运行时组件中引发的异常的类型，只能获得堆栈跟踪信息文本，这使得在 WinJS 中难以判断 Windows 运行时组件引发了什么异常。<br />
+由于 WinJS 编写的 Windows 商店应用不能获取 Windows 运行时组件中引发的异常的类型，只能获得堆栈跟踪信息文本，这使得在 WinJS 中难以判断 Windows 运行时组件引发了什么异常。
+
 dnex.js 记录了 mscorlib.dll 中定义的所有异常，并通过 dnex 类提供给 WinJS，使得在 WinJS 中判断 Windows 运行时组件引发的异常类型变得十分容易。
+
+## How to use dnex.js
+This can be done through direct download of dnex.js using Nuget, or clone this repo and generate it. Details on how to genearate will be supplied in the "Generate dnex.js" Section
+```powershell
+Install-Package dnex.js
+```
 
 ## 如何使用 dnex.js
 可以通过 NuGet 直接下载 dnex.js，也可以通过 dnex2winjs 项目来生成，有关如何生成请参考下文的“生成 dnex.js”一节
