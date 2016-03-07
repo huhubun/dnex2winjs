@@ -1,17 +1,17 @@
 # dnex2winjs (dnex.js)
-dnex is short for **Dot Net EXcetptions**, dnex.js will make it easier to deal with the exception thrown by Windows Runtime Component in WinJS based Windows Store App
+dnex is short for **Dot Net EXcetptions**, dnex.js makes it easier to deal with the exception thrown by Windows Runtime Component in WinJS based Windows Store App
 
-There is some limitation about this, details will follow in the note section
+There are some limitations, details will follow in the note section
 
 # dnex2winjs (dnex.js)
-dnex 的含义是 **Dot Net EXceptions**。通过 dnex.js 可以让 WinJS 编写的 Windows 商店应用更方便的处理 Windows 运行时组件引发的异常。
+dnex 的含义是 **Dot Net EXceptions**。 dnex.js 可以让 WinJS 编写的 Windows 商店应用更方便的处理 Windows 运行时组件引发的异常。
 
 在使用过程中存在一些限制，详细内容请参考下文的“注意事项”一节
 
 ## Why use dnex.js
 Due to the fact that Winows store apps can't access the type of excepiton in the Windows RUntime Component, the only avaliable option is to track the stacktrace text, this will make it difficult to decide the type of exception thrown by Window Runtime Component in WinJS.
 
-dnex.js records all the exceptions defined in mscorlib.dll, and can be used as dnex class in WinJS, this will make it easier to decide the type of exception caused by Windows Runtime Component
+dnex.js includes all the exceptions defined in mscorlib.dll, and can be used as dnex class in WinJS, this will make it easier to decide the type of exception caused by Windows Runtime Component
 
 ## 为什么使用 dnex.js
 由于 WinJS 编写的 Windows 商店应用不能获取 Windows 运行时组件中引发的异常的类型，只能获得堆栈跟踪信息文本，这使得在 WinJS 中难以判断 Windows 运行时组件引发了什么异常。
@@ -22,6 +22,23 @@ dnex.js 记录了 mscorlib.dll 中定义的所有异常，并通过 dnex 类提�
 This can be done through direct download of dnex.js using Nuget, or clone this repo and generate it. Details on how to genearate will be supplied in the "Generate dnex.js" Section
 ```powershell
 Install-Package dnex.js
+```
+After this, add the reference to dnex.js in the template page of WinJS app (e.g. `default.html`).
+
+```javascript
+<script src="/js/dnex.js"></script>
+```
+Then, use try..catch to catch `WinRTError` (e in the example code), and the exception throw by Windows Runtime can be determined by compare its `number` attribute with the `exception name` attribute listed by `dnex`. 
+
+```javascript
+try {
+    // Call methods defined in Windows Runtime Component
+}
+catch (e) {
+    if (e.number == dnex.ArgumentNullException) {
+        // Deal with ArgumentNullException 
+    }
+}
 ```
 
 ## 如何使用 dnex.js
@@ -46,6 +63,8 @@ catch (e) {
     }
 }
 ```
+## How it works 
+dnex.js uses `HResult` to determine excpetion type: every exception has an `HResult` attribute, for example *ArgumentNullException* has `HResult` of 0x80004003(-2147467261), *FormatException* has `HResult` of 0x80131537（-2146233033）etc.
 
 ## dnex.js 的原理
 dnex.js 通过 `HResult` 值来判断异常类型：每种异常都有一个 `HResult` 属性，例如 *ArgumentNullException* 的 `HResult` 为 0x80004003（-2147467261）、*FormatException* 的 `HResult` 为 0x80131537（-2146233033）等等。<br />
